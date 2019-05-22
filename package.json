@@ -1,0 +1,27 @@
+{
+  "name": "drawthings",
+  "version": "1.0.0",
+  "description": "CS 290 final project",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.0",
+    "handlebars": "^4.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "echo \"Error: no handlebars build script\" && exit 1",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osu-cs290-sp19/final-project-drawthings.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osu-cs290-sp19/final-project-drawthings/issues"
+  },
+  "homepage": "https://github.com/osu-cs290-sp19/final-project-drawthings#readme"
+}
