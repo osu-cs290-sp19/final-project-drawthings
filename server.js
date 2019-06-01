@@ -13,6 +13,10 @@ app.get('/', function (req, res, next) {
 	res.status(200).render("homePage");
 });
 
+app.get('/draw', function (req, res, next) {
+	res.status(200).render("drawPage");
+});
+
 app.get('*', function (req, res) {
 	res.status(404).render("404");
 });

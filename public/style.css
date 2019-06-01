@@ -75,3 +75,9 @@ a:focus {
 	font-size: 36px;
 	font-weight: 400;
 }
+
+#draw-canvas {
+	width: 800px;
+	height: 600px;
+	border: 1px solid #FFF;
+}
