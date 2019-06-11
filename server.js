@@ -1,5 +1,6 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
+var bodyParser = require("body-parser");
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -12,6 +13,8 @@ for (i in thingDB) {
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
@@ -28,15 +31,16 @@ app.get("/", function (req, res, next) {
 	res.status(200).render(pagename, createDefaultContext(pagename));
 });
 
-app.get("/draw", function (req, res, next) {
-	res.status(200).render("drawPage");
-});
-
 app.get("/gallery", function (req, res, next) {
 	var pagename = "galleryPage";
 	var context = createDefaultContext(pagename);
 	context.things = thingDB;
 	res.status(200).render(pagename, context);
+});
+
+app.get("/draw", function (req, res, next) {
+	var pagename = "drawPage";
+	res.status(200).render(pagename, createDefaultContext(pagename));
 });
 
 app.get("/view/:n", function (req, res, next) {
@@ -49,6 +53,20 @@ app.get("/view/:n", function (req, res, next) {
 		res.status(200).render("viewPage", context);
 	} else {
 		next();
+	}
+});
+
+app.post("/submitThing", function (req, res, next) {
+	if (req.body && req.body.title && req.body.thing) {
+		console.log("Adding thing with title", req.body.title, "and thing", req.body.thing.substring(0, 30), "...");
+		index = 19; // TODO: Finish implementing this function
+		res.status(200).send({
+			index: index
+		});
+	} else {
+		res.status(400).send({
+			error: "Request body needs a title and a thing."
+		});
 	}
 });
 
