@@ -39,6 +39,19 @@ app.get("/gallery", function (req, res, next) {
 	res.status(200).render(pagename, context);
 });
 
+app.get("/view/:n", function (req, res, next) {
+	var pagename = "viewPage";
+	var id = parseInt(req.params.n);
+	var idIsInt = (id != NaN) && (String(id) === req.params.n);
+	if (idIsInt && id >= 0 && id < thingDB.length) {
+		var context = createDefaultContext(pagename);
+		context.thing = thingDB[id];
+		res.status(200).render("viewPage", context);
+	} else {
+		next();
+	}
+});
+
 app.get('*', function (req, res) {
 	res.status(404).render("404");
 });
