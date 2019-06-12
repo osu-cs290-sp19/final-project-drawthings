@@ -1,11 +1,23 @@
 <script src="/draw.js" charset="utf-8" defer></script>
 
 <main class="draw-page">
-	<input type="text" placeholder="Title" id="title-input" />
-	<canvas id="draw-canvas"></canvas>
-	<div class="button" id="submit-button">
-		<p>
-			Submit Thing
-		</p>
+	<div id="drawing-container">
+		<canvas id="draw-canvas"></canvas>
+		<div id="drawing-tools">
+			<p class="drawing-tool-header">Background Color</p>
+			<div id="background-picker"></div>
+			<p class="drawing-tool-header">Color Picker</p>
+			<div id="color-picker"></div>
+			<p class="drawing-tool-header">Pen Size</p>
+			<div id="pen-sizes"></div>
+			<button id="undo-button">Undo</button>
+			<button id="reset-button">Reset</button>
+		</div>
+	</div>
+	<div id="submission-details">
+		<input type="text" placeholder="Title" id="title-input" />
+		<div class="button" id="submit-button">
+			<p>Submit Thing</p>
+		</div>
 	</div>
 </main>
