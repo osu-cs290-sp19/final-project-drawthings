@@ -1,102 +1,17 @@
 [
-	{
-		"title": "Test Thing 1",
-		"rating": 1,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 2",
-		"rating": 2,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 3",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 4",
-		"rating": 4,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 5",
-		"rating": 5,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 6",
-		"rating": 1.5,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 7",
-		"rating": 4.25,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 8",
-		"rating": 1,
-		"rating_n": 20
-	},
-	{
-		"title": "Test Thing 9",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 10",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 11",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 12",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 13",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 14",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 15",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 16",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 17",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 18",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 19",
-		"rating": 3,
-		"rating_n": 10
-	},
-	{
-		"title": "Test Thing 20",
-		"rating": 3,
-		"rating_n": 10
-	}
+  {
+    "title": "person",
+    "rating": 3,
+    "rating_n": 1
+  },
+  {
+    "title": "sun",
+    "rating": 5,
+    "rating_n": 1
+  },
+  {
+    "title": "mountains",
+    "rating": 1,
+    "rating_n": 1
+  }
 ]
