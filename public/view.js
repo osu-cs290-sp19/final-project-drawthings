@@ -22,7 +22,7 @@ function handleRate(event) {
 			}
 			
 			var parsedResponse = JSON.parse(evt.target.response);
-			document.getElementById("view-rating").textContent = "Rating: " + parsedResponse.newRating;
+			document.getElementById("view-rating").textContent = "Rating: " + parsedResponse.newRating + " / 5";
 		} else {
 			alert("Error rating thing: " + evt.target.response);
 		}
