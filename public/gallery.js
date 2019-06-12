@@ -9,14 +9,17 @@ function setSelected(event) {
 	event.target.classList.add("selected");
 }
 
-function createSortFunc(field, useFloats, reverse) {
+function createSortFunc(field, numeric, reverse) {
 	return function (a, b) {
 		var fieldA = a.dataset[field];
 		var fieldB = b.dataset[field];
 		
-		if (useFloats) {
+		if (numeric) {
 			fieldA = parseFloat(fieldA);
 			fieldB = parseFloat(fieldB);
+		} else {
+			fieldA = fieldA.toUpperCase();
+			fieldB = fieldB.toUpperCase();
 		}
 		
 		if (fieldA > fieldB) return (!reverse ? 1 : -1);
@@ -25,13 +28,13 @@ function createSortFunc(field, useFloats, reverse) {
 	}
 }
 
-function sortThings(event, field, useFloats = false, reverse = false) {
+function sortThings(event, field, numeric = false, reverse = false) {
 	setSelected(event);
 	
 	var elems = document.createDocumentFragment();
 	
 	thingsList = Array.prototype.slice.call(things, 0);
-	thingsList.sort(createSortFunc(field, useFloats, reverse));
+	thingsList.sort(createSortFunc(field, numeric, reverse));
 	
 	for (i in thingsList) {
 		elems.appendChild(thingsList[i]);
