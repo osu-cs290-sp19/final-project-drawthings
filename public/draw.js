@@ -1,8 +1,8 @@
 // Handle drawing
 
 var canvas = document.getElementById('draw-canvas');
-canvas.height = canvas.clientHeight; // Resize canvas to match display size
-canvas.width = canvas.clientWidth;
+canvas.height = 600;
+canvas.width = 800;
 
 var context = canvas.getContext("2d");
 context.lineJoin = "round";
