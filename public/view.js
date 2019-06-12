@@ -23,6 +23,8 @@ function handleRate(event) {
 			
 			var parsedResponse = JSON.parse(evt.target.response);
 			document.getElementById("view-rating").textContent = "Rating: " + parsedResponse.newRating + " / 5";
+
+			document.cookie = thingId + "=" + rating + "; expires=Tue, 1 Jan 2030 12:00:00 UTC; path=/";
 		} else {
 			alert("Error rating thing: " + evt.target.response);
 		}
@@ -32,6 +34,20 @@ function handleRate(event) {
 	request.send(requestBody);
 }
 
-for (var i = 0; i < boxes.length; i++) {
-	boxes[i].addEventListener("click", handleRate);
+var ratingIndex = document.cookie.indexOf(thingId + "=");
+if (ratingIndex != -1) {
+	ratingIndex += (thingId + "=").length;
+	var semicolonIndex = document.cookie.indexOf(";", ratingIndex);
+	var currentRating = (semicolonIndex == -1) ? document.cookie.substring(ratingIndex) : document.cookie.substring(ratingIndex, semicolonIndex);
+	
+	for (var i = 0; i < boxes.length; i++) {
+		boxes[i].classList.remove("unrated");
+		if (boxes[i].id.substr(4, 5) == currentRating) {
+			boxes[i].classList.add("rated");
+		}
+	}
+} else {
+	for (var i = 0; i < boxes.length; i++) {
+		boxes[i].addEventListener("click", handleRate);
+	}
 }
