@@ -212,7 +212,7 @@ function handleSubmit() {
 			if (event.target.status === 200) {
 				submitted = true;
 				var parsedResponse = JSON.parse(event.target.response);
-				window.location.replace("/view/" + parsedResponse.index);
+				window.location.href = "/view/" + parsedResponse.index;
 			} else {
 				alert("Error submitting thing: " + event.target.response);
 			}

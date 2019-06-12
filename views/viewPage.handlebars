@@ -1,6 +1,21 @@
+<script src="/view.js" charset="utf-8" thingId="{{thing.id}}" defer></script>
+
 <main class="thing-viewer">
 	<h2 class="thing-header">
 		{{thing.title}}
 	</h2>
 	<img class="thing-img" src="{{thing.src}}" />
+	<p id="view-rating">
+		Rating: {{ratingText}}
+	</p>
+	<div class="rate">
+		<div class="rate-box unrated" id="rate5"></div>
+		<div class="rate-box unrated" id="rate4"></div>
+		<div class="rate-box unrated" id="rate3"></div>
+		<div class="rate-box unrated" id="rate2"></div>
+		<div class="rate-box unrated" id="rate1"></div>
+		<p class="rate-text">
+			Rate this thing:
+		</p>
+	</div>
 </main>
