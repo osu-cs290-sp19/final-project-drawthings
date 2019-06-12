@@ -1,5 +1,24 @@
+<script src="/gallery.js" charset="utf-8" defer></script>
+
 <main class="thing-gallery">
-	{{#each things}}
-		{{> thingSmall}}
-	{{/each}}
+	<div class="sort-select">
+		<p class="sort-label">
+			Sort by:
+		</p>
+		<p class="sort-option selected" id="sort-date">
+			Creation Date
+		</p>
+		<p class="sort-option" id="sort-title">
+			Title
+		</p>
+		<p class="sort-option" id="sort-rating">
+			Rating
+		</p>
+	</div>
+	
+	<div id="gallery-container">
+		{{#each things}}
+			{{> thingSmall}}
+		{{/each}}
+	</div>
 </main>
