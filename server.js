@@ -1,14 +1,30 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
+var dataUriToBuffer = require("data-uri-to-buffer");
+var fs = require("fs");
 
 var app = express();
 var port = process.env.PORT || 3000;
 
-var thingDB = require("./thingsDB");
+var thingDBOrig = require("./thingsDB");
+var thingDB = [];
 
-for (i in thingDB) {
-	thingDB[i].src = "/things/" + thingDB[i].id + ".png";
+function addToThingDB(thing, index, addToOrig = true) {
+	thingDB.push({title: thing.title});
+	thingDB[index].id = index;
+	thingDB[index].src = "/things/" + index + ".png";
+	
+	if (addToOrig) {
+		thingDBOrig.push(thing);
+		fs.writeFile("./thingsDB.json", JSON.stringify(thingDBOrig, null, 2), function (err) {
+			if (err) throw err;
+		});
+	}
+}
+
+for (i in thingDBOrig) {
+	addToThingDB(thingDBOrig[i], i, false);
 }
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -58,8 +74,17 @@ app.get("/view/:n", function (req, res, next) {
 
 app.post("/submitThing", function (req, res, next) {
 	if (req.body && req.body.title && req.body.thing) {
+		index = thingDB.length;
+		var newThing = {
+			title: req.body.title
+		};
+		addToThingDB(newThing, index);
+		
 		console.log("Adding thing with title", req.body.title, "and thing", req.body.thing.substring(0, 30), "...");
-		index = 19; // TODO: Finish implementing this function
+		fs.writeFile("./public/things/" + index + ".png", dataUriToBuffer(req.body.thing), "binary", function(err) {
+			if (err) throw err;
+		});
+		
 		res.status(200).send({
 			index: index
 		});
