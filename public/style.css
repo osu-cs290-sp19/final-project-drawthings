@@ -262,6 +262,8 @@ main {
 	height: 20px;
 	margin: 2px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24), 0 -1px 3px rgba(0,0,0,0.12), 0 -1px 2px rgba(0,0,0,0.24);
+	border-radius: 2px;
+	background-color: #464a53;
 }
 
 .unrated {
@@ -275,5 +277,5 @@ main {
 
 .rated,
 .rated ~ .rate-box {
-	background-color: #5e636e;
+	background-color: #757c8a;
 }
